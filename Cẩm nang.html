@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cẩm nang cho Newbie — Kênh Thông Tin</title>
+  <style>
+    :root{
+      --primary:#1e3a8a;
+      --accent:#2563eb;
+      --muted:#6b7280;
+      --bg:#f4f6f8;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Arial; margin:0; background:var(--bg); color:#111}
+    header{background:linear-gradient(90deg,var(--primary),var(--accent)); color:#fff; padding:28px 16px; text-align:center}
+    header h1{margin:0; font-size:22px}
+    header p{margin:6px 0 0; opacity:0.95}
+
+    nav{display:flex; gap:8px; justify-content:center; padding:10px; background:#fff; box-shadow:0 1px 0 rgba(0,0,0,0.04)}
+    .nav-btn{background:transparent;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;color:var(--primary)}
+    .nav-btn.active{background:var(--accent); color:#fff}
+
+    .wrap{max-width:980px;margin:22px auto;padding:0 16px}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .search{flex:1;min-width:220px}
+    .search input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd}
+    .btn{background:var(--primary);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--primary);border:1px solid #e5e7eb}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:18px;margin-top:18px}
+    .main{min-height:400px}
+    .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(16,24,40,0.04)}
+
+    /* cẩm nang list */
+    .toc{display:flex;flex-direction:column;gap:8px}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--primary);font-weight:600}
+    .toc a:hover{background:#f1f5f9}
+
+    .article h2{margin-top:0}
+    .section{margin-bottom:18px}
+    .meta{color:var(--muted);font-size:13px}
+
+    /* right column */
+    .aside .card{position:sticky;top:18px}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{max-width:980px;margin:26px auto 40px;padding:16px;color:var(--muted);text-align:center}
+
+    /* responsive */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr;}
+      .aside .card{position:static}
+      nav{overflow:auto}
+    }
+
+    /* accordion */
+    .acc-head{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .28s ease;padding-top:0}
+    .acc-open .acc-body{padding-top:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cẩm nang cho Newbie</h1>
+    <p>Hướng dẫn ngắn gọn, dễ đọc — tối ưu để đăng lên web hoặc mở trong VS Code</p>
+  </header>
+
+  <nav aria-label="main navigation">
+    <button class="nav-btn active" data-target="all">Toàn bộ</button>
+    <button class="nav-btn" data-target="vuot-ai">Vượt ải</button>
+    <button class="nav-btn" data-target="ruong">Ruộng</button>
+    <button class="nav-btn" data-target="thuong-chien">Thương chiến</button>
+    <button class="nav-btn" data-target="nhan-tai">Nhân tài</button>
+    <button class="nav-btn" data-target="mi-luc">Mị lực</button>
+    <button class="nav-btn" data-target="do-xe">Đỗ xe</button>
+    <button class="nav-btn" data-target="tieu-dung">Tiêu dùng</button>
+  </nav>
+
+  <div class="wrap">
+    <div class="controls">
+      <div class="search">
+        <input id="q" placeholder="🔍 Tìm kiếm trong cẩm nang (ví dụ: ruộng, sách, kinh chập...)" />
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" id="printBtn">In / Xuất PDF</button>
+        <button class="btn ghost" id="copyBtn">Sao chép (copy)</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="main">
+        <div class="card article" id="content">
+
+          <section id="vuot-ai" class="section" data-tags="vuot ai level thẻ phút">
+            <h2>1. Vượt Ải</h2>
+            <p class="meta">Tăng level nhanh — ưu tiên thực hiện thường xuyên</p>
+            <p>Vượt ải là cách để tăng level nhanh nhất và đem lại nhiều lợi ích kèm theo. Đừng tiếc thẻ phút — hãy vượt ải đều đặn để tối ưu tiến độ.</p>
+          </section>
+
+          <section id="ruong" class="section" data-tags="ruong sách kinh chập cửa hàng">
+            <h2>2. Ruộng (cách tăng thu nhập, năng lực, mị nhanh và rẻ nhất)</h2>
+            <div class="small">Bước 1 — Tích lũy sách</div>
+            <ul>
+              <li>Mua 7–13 quyển từ <strong>Ai là triệu phú</strong> (tùy lượng xu bạn có).</li>
+              <li>Mua full sách từ <strong>Cửa hàng công hội</strong>.</li>
+              <li>Mua thêm 5–7–10 quyển tùy khả năng.</li>
+              <li>Mua sách từ <strong>Đào tạo nhân tài</strong> và các nguồn khác.</li>
+            </ul>
+            <p><strong>Ghi chú:</strong> mua càng nhiều sách càng tốt — đây là đầu tư rẻ mà hiệu quả.</p>
+
+            <div class="small">Bước 2 — Dùng sách</div>
+            <p>Dùng sách để nâng tất cả vào <strong>Ruộng</strong>. Khi việc nâng ruộng bắt đầu tốn quá nhiều sách, cân nhắc kết hợp nâng <strong>Cửa hàng</strong> để tăng level tổng.</p>
+
+            <div class="small">Bước 3 — Điểm tiệc & Kinh chập</div>
+            <p>Tích thật nhiều điểm tiệc để mua <strong>Kinh chập</strong> — rất quan trọng. Khuyến khích “sập” các shop bán <strong>vé kinh chập</strong> khi có thể.</p>
+          </section>
+
+          <section id="thuong-chien" class="section" data-tags="thuong chien tím vàng tăng phần trăm xếp đội">
+            <h2>3. Thương chiến</h2>
+            <p>Thông tin quan trọng: <strong>1 con tím = +5%</strong>, <strong>1 con vàng = +10%</strong> (chưa nâng tuyệt kỹ). Vì vậy, hãy xếp các nhân tài cùng loại với nhau để cộng dồn chỉ số.</p>
+            <p>Ví dụ: nếu Cường Cá là thương mại, hãy xếp cùng Anh Long, Giám đốc Trịnh... Tránh xếp lẫn loại trừ khi thực sự cần lấp vị trí.</p>
+          </section>
+
+          <section id="nhan-tai" class="section" data-tags="nhan tai tuyệt kỹ nâng sao ưu tiên">
+            <h2>4. Nâng nhân tài & Tuyệt kỹ</h2>
+            <ul>
+              <li>Nếu không có tài chính để đầu tư mạnh vào thương mại → chuyển sang đầu tư vào nhân tài khác loại để có lợi thế.</li>
+              <li>Khi nâng tuyệt kỹ, tránh nâng sao cho tướng có năng lực cao trừ khi bạn đã đầu tư nhiều vào tướng đó (ví dụ: Cường Cá có thể lên 2 sao nếu đã đầu tư nhiều).</li>
+              <li>Ưu tiên nâng: <em>Tuyệt đại phong hoa → Anh hùng tuổi thơ → Danh tướng Thủy Hử</em>. Những con mua bằng vé nhân tài ưu tiên nâng sau cùng.</li>
+            </ul>
+          </section>
+
+          <section id="mi-luc" class="section" data-tags="mi luc nghe si do quyen">
+            <h2>5. Mị lực nghệ sĩ</h2>
+            <p>Nên đầu tư vào <strong>Đỗ Quyên</strong> lên 4k mị; phần còn lại hãy đầu tư vào những nhân tài bạn đã tập trung trước đó (vd: nếu nâng Cường Cá, nên đầu tư vào Hài Yến hoặc Anh Tư).</p>
+          </section>
+
+          <section id="do-xe" class="section" data-tags="do xe trien lam onl vi tri"> 
+            <h2>6. Đỗ xe</h2>
+            <p>Đỗ xe ở vị trí an toàn tầm <strong>15.000</strong> là hợp lý — mục tiêu là không bị đá. Phần quan trọng hơn là <strong>Triển lãm xe</strong>: hãy online đúng giờ để chiếm vị trí tốt tương ứng level của bạn.</p>
+          </section>
+
+          <section id="tieu-dung" class="section" data-tags="tieu dung ve khiêu chien su kien diem tiec">
+            <h2>7. Tiêu dùng hợp lý</h2>
+            <ul>
+              <li>Mua <strong>vé khiêu chiến (50 KC)</strong>.</li>
+              <li>Sự kiện lẻ (ném bao cát, đập ảnh...) — dùng ~<strong>200 KC/ngày</strong> để tham gia nếu muốn.</li>
+              <li>Dùng điểm tiệc để mua vé du lịch, điểm kinh nghiệm.</li>
+              <li>Nếu ít xu CH: ưu tiên mua vé nhân tài và đồ tổ chức tiệc; tránh mua xe vội — đổi sang vé vũ trường, nhà tắm, phim...</li>
+              <li>Nếu có nhiều xu: có thể mua full shop tháng (tùy chiến lược cá nhân).</li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="card">
+          <h3>Mục lục nhanh</h3>
+          <nav class="toc" id="toc">
+            <a href="#vuot-ai">1. Vượt Ải</a>
+            <a href="#ruong">2. Ruộng</a>
+            <a href="#thuong-chien">3. Thương chiến</a>
+            <a href="#nhan-tai">4. Nhân tài & Tuyệt kỹ</a>
+            <a href="#mi-luc">5. Mị lực nghệ sĩ</a>
+            <a href="#do-xe">6. Đỗ xe</a>
+            <a href="#tieu-dung">7. Tiêu dùng hợp lý</a>
+          </nav>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card small">
+          <h4>Gợi ý sử dụng</h4>
+          <ul>
+            <li>Nhập từ khóa để lọc (ví dụ: "sách", "kinh chập").</li>
+            <li>Nhấn các nút điều hướng để nhảy đến phần tương ứng.</li>
+            <li>Dùng nút <em>Sao chép</em> để copy toàn bộ nội dung ra clipboard.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    <div>Được tạo tự động — Mở file trong VS Code để chỉnh sửa nhanh. © Cẩm nang Newbie</div>
+  </footer>
+
+  <script>
+    // navigation highlight + scroll
+    document.querySelectorAll('.nav-btn').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        const target = b.dataset.target;
+        if(target === 'all'){ window.scrollTo({top:0,behavior:'smooth'}); return }
+        const el = document.getElementById(target);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      })
+    });
+
+    // search filter
+    const q = document.getElementById('q');
+    const sections = Array.from(document.querySelectorAll('.article .section'));
+    q.addEventListener('input', ()=>{
+      const v = q.value.trim().toLowerCase();
+      if(!v){ sections.forEach(s=>s.style.display='block'); return }
+      sections.forEach(s=>{
+        const text = (s.innerText || '').toLowerCase();
+        s.style.display = text.includes(v) ? 'block' : 'none';
+      })
+    });
+
+    // copy content
+    document.getElementById('copyBtn').addEventListener('click', async ()=>{
+      const content = document.getElementById('content').innerText;
+      try{
+        await navigator.clipboard.writeText(content);
+        alert('Đã sao chép nội dung vào clipboard.');
+      }catch(e){
+        // fallback
+        const ta = document.createElement('textarea'); ta.value = content; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+        alert('Đã sao chép nội dung vào clipboard (fallback).');
+      }
+    });
+
+    // print / pdf
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+
+    // make in-page anchors smooth for toc
+    document.querySelectorAll('.toc a').forEach(a=> a.addEventListener('click', e=>{ e.preventDefault(); const id = a.getAttribute('href').slice(1); document.getElementById(id).scrollIntoView({behavior:'smooth'}); }));
+
+    // keyboard: '/' to focus search
+    window.addEventListener('keydown', (e)=>{ if(e.key === '/') { e.preventDefault(); q.focus(); } });
+  </script>
+</body>
+</html>
